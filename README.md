@@ -1,15 +1,17 @@
 ## Chakra UI
 
-1. **Installation**
-   In your Vite React project, install Chakra UI by running either of the following:
+##### Installation
+
+In your Vite React project, install Chakra UI by running either of the following:
 
 ```
 npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 ```
 
-2. **Provider Setup**
-   After installing Chakra UI, you need to set up the ChakraProvider at the root of your application.
-   Go to the src directory and inside main.jsx or main.tsx, wrap ChakraProvider around App:
+##### Provider Setup
+
+After installing Chakra UI, you need to set up the ChakraProvider at the root of your application.
+Go to the src directory and inside main.jsx or main.tsx, wrap ChakraProvider around App:
 
 ```javascript
 import * as React from 'react'
@@ -38,6 +40,8 @@ npm install zustand # or yarn add zustand or pnpm add zustand
 ```
 
 Your store is a hook! You can put anything in it: primitives, objects, functions. State has to be updated immutably and the `set` function [merges state](https://github.com/pmndrs/zustand/blob/main/docs/guides/immutable-state-and-merging.md) to help it.
+
+##### First create a store
 
 ```js
 import { create } from 'zustand'
