@@ -1,8 +1,66 @@
-# React + Vite
+## Chakra UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **Installation**
+   In your Vite React project, install Chakra UI by running either of the following:
 
-Currently, two official plugins are available:
+```
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **Provider Setup**
+   After installing Chakra UI, you need to set up the ChakraProvider at the root of your application.
+   Go to the src directory and inside main.jsx or main.tsx, wrap ChakraProvider around App:
+
+```javascript
+import * as React from 'react'
+import { ChakraProvider } from '@chakra-ui/react'
+import * as ReactDOM from 'react-dom/client'
+
+const rootElement = document.getElementById('root')
+ReactDOM.createRoot(rootElement).render(
+  <React.StrictMode>
+    `<ChakraProvider>`
+      `<App />`
+    `</ChakraProvider>`
+  </React.StrictMode>,
+)
+```
+
+> Boom! You're good to go with steps 1 and 2 🚀🚀🚀 However, if you'd love to take it a step further, check out step 3.
+
+
+---
+
+## Zustand
+
+```
+npm install zustand # or yarn add zustand or pnpm add zustand
+```
+
+Your store is a hook! You can put anything in it: primitives, objects, functions. State has to be updated immutably and the `set` function [merges state](https://github.com/pmndrs/zustand/blob/main/docs/guides/immutable-state-and-merging.md) to help it.
+
+```js
+import { create } from 'zustand'
+
+const useBearStore = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}))
+```
+
+##### Then bind your components, and that's it!
+
+Use the hook anywhere, no providers are needed. Select your state and the component will re-render on changes.
+
+```js
+function BearCounter() {
+  const bears = useBearStore((state) => state.bears)
+  return <h1>{bears} around here ...</h1>
+}
+
+function Controls() {
+  const increasePopulation = useBearStore((state) => state.increasePopulation)
+  return <button onClick={increasePopulation}>one up</button>
+}
+```
