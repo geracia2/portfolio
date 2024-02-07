@@ -94,15 +94,14 @@ export function BannerImage() {
           <Card withBorder radius="md" className={classes.card} >
             <Card.Section>
               <AspectRatio ratio={16 / 9} >
-                <Image src='./images/video_thumbnail.jpg'style={{ cursor: 'pointer' }} onClick={open} />
+                <Image src='./images/video_thumbnail.jpg' style={{ cursor: 'pointer' }} onClick={open} />
               </AspectRatio>
             </Card.Section>
             <Text mt={20} fw={500} >
               Motion Design Reel
             </Text>
             <Text fz="sm" c="dimmed" lineClamp={4}>
-              I have been in the filed of Motion Design since 2015
-            </Text>
+              I have worked in the field of Motion Design since 2015 with experience in variety of animation techniques and VFX processes.            </Text>
           </Card>
           {cards}
         </SimpleGrid>
