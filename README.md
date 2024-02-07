@@ -68,3 +68,7 @@ function Controls() {
   return <button onClick={increasePopulation}>one up</button>
 }
 ```
+
+```
+npm install --save-dev postcss postcss-preset-mantine postcss-simple-vars
+```

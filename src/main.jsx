@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import { theme } from "./ui/chakraTheme";
+import { BrowserRouter as Router } from "react-router-dom";
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <App />
-    </ChakraProvider>
+    <Router>
+      <MantineProvider >
+        <App />
+      </MantineProvider>
+    </Router>
   </React.StrictMode>
 );
