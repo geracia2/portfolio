@@ -36,7 +36,7 @@ export function Hero() {
                         <Button component="a" href="https://www.linkedin.com/in/aaron-geraci/" size="xl" variant="default" className={classes.control} leftSection={<IoLogoLinkedin size={20} />} >
                             LinkedIn
                         </Button>
-                        <Button component="a" href="https://github.com/geracia2" size="xl" variant="default" className={classes.control} leftSection={<IoDocumentAttach size={20} />} >
+                        <Button component="a" href="https://docs.google.com/document/d/1-3mBPiyLRa14nv4TMan_BD6lsJ7p21tl/edit?usp=drive_link&ouid=116708027853520128681&rtpof=true&sd=true" size="xl" variant="default" className={classes.control} leftSection={<IoDocumentAttach size={20} />} >
                             Resume
                         </Button>
                         <Button component="a" href="mailto:geracia2@gmail.com" size="xl" variant="default" className={classes.control} leftSection={<MdEmail size={20} />} >
