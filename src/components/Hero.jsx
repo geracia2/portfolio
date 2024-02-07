@@ -29,7 +29,7 @@ export function Hero() {
                     I'm a seasoned Motion Graphic Designer acquiring new career skills in Full Stack Development, exploring the world of tech to enhance my creative toolkit.
                 </Text>
                 <Grid style={{marginTop:'20px'}} >
-                    <Grid.Col span={{ xs: 12, sm: 4 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap:'wrap' }}>
+                    <Grid.Col span={{ xs: 12, sm: 6 }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap:'wrap' }}>
                         <Button component="a" href="https://github.com/geracia2" size="xl" variant="default" className={classes.control} leftSection={<GithubIcon size={20} />} >
                             My GitHub
                         </Button>
@@ -43,12 +43,12 @@ export function Hero() {
                             geracia2@gmail.com
                         </Button>
                     </Grid.Col>
-                    <Grid.Col span={{ xs: 12, sm: 8 }} className={classes.controls} >
+                    <Grid.Col span={{ xs: 12, sm: 6 }} className={classes.controls} >
                         <Button onClick={toggle} size="xl" variant="gradient" gradient={{ from: '#9CAEFF', to: '#6680FD' }} >
                             About Me
                         </Button>
                         <Collapse in={opened} transitionDuration={800} transitionTimingFunction="ease">
-                            <Text >
+                            <Text mt={20}>
                                 Bridging the Gap: My mission? To seamlessly unite the realms of design and code, with a particular focus on creating experiences that resonate with the end user, especially children. I thrive on breaking down barriers between function and beauty, bringing a unique perspective to the table.
                                 <br />
                                 <br />
