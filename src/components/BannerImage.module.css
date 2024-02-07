@@ -1,25 +1,16 @@
 .card {
-  /* position: relative;
-  background-color: var(--mantine-color-body); */
   transition: transform 150ms ease, box-shadow 150ms ease;
-
   &:hover {
     transform: scale(1.01);
     box-shadow: var(--mantine-shadow-md);
   }
 }
 
-.rating {
+.status {
   position: absolute;
   top: var(--mantine-spacing-xs);
   right: rem(12px);
   pointer-events: none;
-}
-
-.title {
-  display: block;
-  margin-top: var(--mantine-spacing-md);
-  margin-bottom: rem(5px);
 }
 
 .action {

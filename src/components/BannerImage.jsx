@@ -1,8 +1,8 @@
-import { SimpleGrid, Card, Image, Text, Container, AspectRatio, Button, Badge, Group, Center, Avatar, ActionIcon, } from '@mantine/core';
+import { SimpleGrid, Card, Image, Text, Container, AspectRatio, Button, Badge, Group, Center, Avatar, ActionIcon, Modal, useMantineTheme } from '@mantine/core';
 import classes from './BannerImage.module.css';
 import { IoLogoGithub } from "react-icons/io5";
 import { RiPagesFill } from "react-icons/ri";
-
+import { useDisclosure } from '@mantine/hooks';
 const cardData = [
   {
     title: 'Space Invaders',
@@ -29,29 +29,29 @@ const cardData = [
 ];
 
 export function BannerImage() {
-  const cards = cardData.map((card) => (
-    <Card withBorder radius="md" className={classes.card} key={card.title}>
-      <Card.Section>
-        <AspectRatio ratio={16 / 9} >
-          <Image src={card.image} />
-        </AspectRatio>
-      </Card.Section>
+  const [opened, { open, close }] = useDisclosure(false);
+  const theme = useMantineTheme();
 
-      {/* <Badge className={classes.rating} variant="gradient" gradient={{ from: 'yellow', to: 'red' }}>
+
+  const cards = cardData.map((card) => (
+    <Card withBorder radius="md" className={classes.card} key={card.title} >
+      <Card.Section>
+        <a href={card.live} target='_blank' rel='noopener noreferrer'>
+          <AspectRatio ratio={16 / 9} >
+            <Image src={card.image} />
+          </AspectRatio>
+        </a>
+      </Card.Section>
+      {/* <Badge className={classes.status} variant="gradient" gradient={{ from: 'yellow', to: 'red' }}>
       In-Process
     </Badge> */}
-
-      <Text className={classes.title} fw={500} component="a" >
+      <Text mt={20} fw={500}>
         {card.title}
       </Text>
-
       <Text fz="sm" c="dimmed" lineClamp={4}>
         {card.description}
       </Text>
-
       <Group justify="space-between" className={classes.footer}>
-
-
         <Group gap={8} mr={0}>
           <a href={card.github} target='_blank' rel='noopener noreferrer'>
             <ActionIcon size={40} className={classes.action} aria-label='GitHub link' alt="GitHub link">
@@ -68,11 +68,45 @@ export function BannerImage() {
     </Card>
   ));
 
+  function ratioResize() {
+    console.log(window.innerHeight, window.innerWidth)
+    let winWidth = window.innerWidth
+    let iframeWidth = winWidth - 20;
+    let iframeHeight = iframeWidth * (9 / 16);
+    console.log(iframeWidth, iframeHeight)
+    return { width: `${iframeWidth}px`, height: `${iframeHeight}px` };
+  }
+  const resizeDimensions = ratioResize()
+
   return (
-    <Container py="xl">
-      <SimpleGrid cols={{ base: 1, sm: 2 }}>
-        {cards}
-      </SimpleGrid>
-    </Container>
+    <>
+      <Modal opened={opened} onClose={close} size="calc(100vw - 3rem)" centered>
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <iframe title="vimeo-player" src="https://player.vimeo.com/video/767708804?h=c47fc33a46"
+            width={resizeDimensions.width} height={resizeDimensions.height}
+            frameBorder="0" allowFullScreen></iframe>
+        </div>
+      </Modal>
+      <Container py="xl">
+        <SimpleGrid cols={{ base: 1, sm: 2 }}>
+          <Card withBorder radius="md" className={classes.card} >
+            <Card.Section>
+              <AspectRatio ratio={16 / 9} >
+                <Image src='./images/video_thumbnail.jpg'style={{ cursor: 'pointer' }} onClick={open} />
+              </AspectRatio>
+            </Card.Section>
+            <Text mt={20} fw={500} >
+              Motion Design Reel
+            </Text>
+            <Text fz="sm" c="dimmed" lineClamp={4}>
+              I have been in the filed of Motion Design since 2015
+            </Text>
+          </Card>
+          {cards}
+        </SimpleGrid>
+      </Container>
+    </>
   );
 }
