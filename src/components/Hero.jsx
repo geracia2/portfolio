@@ -36,9 +36,9 @@ export function Hero() {
                         <Button component="a" href="https://www.linkedin.com/in/aaron-geraci/" target='_blank' rel='noopener noreferrer' size="xl" variant="default" className={classes.control} leftSection={<IoLogoLinkedin size={20} />} >
                             LinkedIn
                         </Button>
-                        {/* <Button component="a" href="mailto:geracia2@gmail.com" size="xl" variant="default" target='_blank' rel='noopener noreferrer' className={classes.control} leftSection={<MdEmail size={20} />} >
+                        <Button component="a" href="mailto:geracia2@gmail.com" size="xl" variant="default" target='_blank' rel='noopener noreferrer' className={classes.control} leftSection={<MdEmail size={20} />} >
                             geracia2@gmail.com
-                        </Button> */}
+                        </Button>
                     </Grid.Col>
                     <Grid.Col span={{ xs: 12, sm: 6 }} className={classes.controls} >
                         <Button onClick={toggle} size="xl" variant="gradient" gradient={{ from: '#9CAEFF', to: '#6680FD' }} >
